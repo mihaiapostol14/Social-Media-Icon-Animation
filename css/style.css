@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+
+body{
+    display: flex;
+    height: 100Vh;
+    justify-content: center;
+    align-items: center;
+    background: #13141F
+
+}
+
+.container{
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    padding: 20px 20px;
+    justify-content: space-around;
+    /* background: rgb(60, 0, 255); */
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  
+  }
+  
+.icon-box{
+    background: #252856;
+    position: relative;
+    font-size: 2.6rem;
+    border: 0;
+    border-radius: 50%;
+    background: none
+}
+
+.icon-box:hover::after, .icon-box:hover::before{
+  content: attr(data-icon-title);
+  display: block;
+  position: absolute;
+  font-size: 16px;
+  text-transform: capitalize;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background: #318CE7;
+  bottom: 100%;
+}
+
+
+  i::after, i::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 50%, #0000FE, #e01965);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+  }
+  
+  .icon-box::before{
+    filter: blur(11.5rem);
+    opacity: 0.5;
+  }
+  
+  @keyframes spin {
+    from{
+      --angle: 0deg;
+    }
+    
+    to{
+      --angle: 360deg;
+    }
+    
+  }
